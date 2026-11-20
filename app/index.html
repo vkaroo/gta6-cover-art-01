@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Cover Studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Sunset Cover Studio</h1>
+    <p class="tagline">Turn a photo and a caption into a multi-panel poster cover, and export it as a PNG to share. Your photos never leave this machine.</p>
+
+    <fieldset>
+      <legend>Photo — <span id="selected-label">Panel 1 of 3</span></legend>
+      <label>Upload a photo <input id="photo" type="file" accept="image/*"></label>
+      <div class="row">
+        <button id="sample-pier" type="button">Sample: Pier</button>
+        <button id="sample-boulevard" type="button">Sample: Boulevard</button>
+      </div>
+      <button id="fill-all" type="button">Use this photo in every panel</button>
+      <label>Zoom <span id="zoom-value">100%</span>
+        <input id="zoom" type="range" min="80" max="300" value="100">
+      </label>
+      <button id="reset-pan" type="button">Reset position</button>
+      <p class="hint">Click a panel in the preview to select it, then drag it to move its photo.</p>
+      <div class="row panel-pick">
+        <button type="button" data-panel="0">Panel 1</button>
+        <button type="button" data-panel="1">Panel 2</button>
+        <button type="button" data-panel="2">Panel 3</button>
+        <button type="button" data-panel="3">Panel 4</button>
+      </div>
+    </fieldset>
+
+    <fieldset id="layout-group">
+      <legend>Layout</legend>
+      <div class="row">
+        <button type="button" data-value="vice">Vice</button>
+        <button type="button" data-value="streets">Streets</button>
+        <button type="button" data-value="solo">Solo</button>
+      </div>
+    </fieldset>
+
+    <fieldset id="grade-group">
+      <legend>Colour grade</legend>
+      <div class="row">
+        <button type="button" data-value="sunset">Sunset</button>
+        <button type="button" data-value="neon">Neon</button>
+        <button type="button" data-value="palm">Palm</button>
+        <button type="button" data-value="noir">Noir</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Caption</legend>
+      <label>Title <input id="title" type="text" maxlength="32" value="Sunset Heist"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="Neon Nights"></label>
+    </fieldset>
+
+    <fieldset id="size-group">
+      <legend>Export size</legend>
+      <div class="row">
+        <button type="button" data-value="square">1080 × 1080</button>
+        <button type="button" data-value="portrait">1080 × 1350</button>
+        <button type="button" data-value="wide">1920 × 1080</button>
+      </div>
+    </fieldset>
+
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
